@@ -34,3 +34,24 @@ public class RareItem {
         }
     }
 }
+
+/*
+ * public class ExamTest {
+ * 
+ * void item(int hp, int mp) {
+ * 
+ * if (2000 <= hp && 2000 <= mp) {
+ * System.out.println("아이템 착용 완료");
+ * } else {
+ * System.out.println("아이템을 착용 할 수 없습니다.");
+ * }
+ * }
+ * 
+ * public static void main(String[] args) {
+ * ExamTest i1 = new ExamTest();
+ * ExamTest i2 = new ExamTest();
+ * i1.item(2500, 2000);
+ * i2.item(2000, 1800);
+ * }
+ * }
+ */
