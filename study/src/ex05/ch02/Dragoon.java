@@ -6,7 +6,28 @@ public class Dragoon extends ProtossUnit {
     int attack;
 
     public Dragoon(String name, int hp, int attack) {
-        super(name, hp, attack);
+        this.name = name;
+        this.hp = hp;
+        this.attack = attack;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int getHp() {
+        return hp;
+    }
+
+    @Override
+    public int getAttack() {
+        return attack;
+    }
+
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
 }

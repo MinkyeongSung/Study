@@ -1,11 +1,13 @@
-package ex05.ch02;
+package src.Chap5.Unit.Protoss;
 
-public class Darktempler extends ProtossUnit {
+import src.Chap5.Unit.Unit;
+
+public class Zealot extends Unit {
     String name;
     int hp;
     int attack;
 
-    public Darktempler(String name, int hp, int attack) {
+    public Zealot(String name, int hp, int attack) {
         this.name = name;
         this.hp = hp;
         this.attack = attack;
@@ -30,4 +32,5 @@ public class Darktempler extends ProtossUnit {
     public void setHp(int hp) {
         this.hp = hp;
     }
+
 }
