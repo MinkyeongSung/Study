@@ -13,6 +13,12 @@ import src.Chap5.Unit.Zerg.Zergling;
 //그러면 3종족을 합친 유닛이 아니라 종족별 유닛 추상화 클래스가 나은가? (그러지 않으면 if protossunit이 아닌 유닛별 개별적용해야할거 같음)
 //지상, 공중, 양쪽모두 가능한 타입으로 나누면? attack을 landattack과 airatack으로? 없는 곳은 값을 0?
 //유닛 개체에도 타입 나눠서 공격 불가능 출력?
+
+// 230609 - super키워드를 사용하면 간단해진다. 
+// 부모(추상)클래스에서 얻고자 하는 변수.
+// 자식클래스에서는 super(변수값)
+// 이렇게 하면 부모클래스에서 체력, 쉴드, 마나, 공격력등을 입력해두고 원하는 변수만 호출하여 사용가능.
+// study의 Ch02 참고.
 public class App {
     static void attack(Unit u1, Unit u2) {
         u2.setHp(u2.getHp() - u1.getAttack());
