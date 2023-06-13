@@ -34,6 +34,6 @@ public class CodingTest007 {
     public static void main(String[] args) {
         Solution007 a = new Solution007();
         int[] result = a.solution(1, 2, 3, 4);
-        System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result)); // 출력. Arrays를 사용하기 위해 임포트(import java.util.Arrays;)
     }
 }
