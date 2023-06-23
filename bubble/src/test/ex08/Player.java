@@ -1,12 +1,16 @@
-package test.ex001;
+package test.ex08;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
+import lombok.Getter;
+import lombok.Setter;
+
+// class Player -> new 가능한 애들!! 게임에 존재할 수 있음. (추상메서드를 가질 수 없다.)
+
+@Getter
+@Setter
 public class Player extends JLabel {
-    // 넣을 것
-    // 플레이어 위치, 방향, 속도, 상하좌우이동
 
     // 위치 상태
     private int x;
@@ -18,41 +22,42 @@ public class Player extends JLabel {
     private boolean up;
     private boolean down;
 
-    // 플레이어 속도 상태
-    private final int SPEED = 4; // x축
-    private final int JUMPSPEED = 4; // ㅛ축
+    // 플레이어의 스피드
+    private final int SPEED = 10; // x 축
+    private final int JUMPSPEED = 4; // y 축
 
-    // 보는 방향따라 이미지
+    // 벽에 충돌한 상태
+    private boolean leftWallCrash;
+    private boolean rightWallCrash;
+
     private ImageIcon playerR, playerL;
 
-    public Player() { // player = new Player(); // add.(player);
+    public Player() {
         initObject();
         initSetting();
+        new Thread(new BackgroundPlayerService(this)).start();
     }
 
     private void initObject() {
-        // 보는 방향 이미지
         playerR = new ImageIcon("image/playerR.png");
         playerL = new ImageIcon("image/playerL.png");
     }
 
     private void initSetting() {
-        // 초기 생성 위치 값
         x = 55;
         y = 535;
 
-        // 생성 위치 고정
         left = false;
         right = false;
         up = false;
         left = false;
 
-        // 오른쪽보고 시작, 크기, 위치 값,
         setIcon(playerR);
         setSize(50, 50);
         setLocation(x, y);
     }
 
+    // 이벤트 핸들러
     public void left() {
         System.out.println("left 메서드 실행됨");
         left = true;
@@ -124,71 +129,6 @@ public class Player extends JLabel {
             down = false;
         }).start();
 
-    }
-
-    // getter, setter
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public boolean isLeft() {
-        return left;
-    }
-
-    public boolean isRight() {
-        return right;
-    }
-
-    public boolean isUp() {
-        return up;
-    }
-
-    public boolean isDown() {
-        return down;
-    }
-
-    public ImageIcon getPlayerR() {
-        return playerR;
-    }
-
-    public ImageIcon getPlayerL() {
-        return playerL;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setLeft(boolean left) {
-        this.left = left;
-    }
-
-    public void setRight(boolean right) {
-        this.right = right;
-    }
-
-    public void setUp(boolean up) {
-        this.up = up;
-    }
-
-    public void setDown(boolean down) {
-        this.down = down;
-    }
-
-    public void setPlayerR(ImageIcon playerR) {
-        this.playerR = playerR;
-    }
-
-    public void setPlayerL(ImageIcon playerL) {
-        this.playerL = playerL;
     }
 
 }
